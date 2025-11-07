@@ -1,14 +1,53 @@
-name: CI
-
+name: ci
 on:
-  push:
   pull_request:
+  push:
+    branches: [ main ]
 jobs:
-  build-dotnet:
+  build-dotnet:   # required check id
     name: Build .NET
     runs-on: ubuntu-latest
-    steps: [...]
-  build-web:
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - run: dotnet --info
+      - name: Discover and build if found
+        run: |
+          shopt -s globstar nullglob
+          found=0
+          for s in **/*.sln **/*.csproj; do
+            found=1
+            echo "Building $s"
+            dotnet build "$s" -c Release --nologo
+          done
+          if [ $found -eq 0 ]; then
+            echo "No .NET solutions/projects yet. Skipping."
+          fi
+  build-web:      # required check id
     name: Build Web
     runs-on: ubuntu-latest
-    steps: [...]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - run: corepack enable && corepack prepare pnpm@latest --activate
+      - name: Install if package.json exists
+        run: |
+          if [ -f "package.json" ] || ls -1 src/web/package.json 2>/dev/null; then
+            ( [ -f "package.json" ] && pnpm install ) || true
+            ( [ -d "src/web" ] && cd src/web && pnpm install ) || true
+          else
+            echo "No web app yet. Skipping."
+          fi
+      - name: Build if scripts exist
+        run: |
+          if [ -f "package.json" ] && jq -er ".scripts.build" package.json >/dev/null 2>&1; then
+            pnpm run build
+          elif [ -d "src/web" ] && [ -f "src/web/package.json" ] && jq -er ".scripts.build" src/web/package.json >/dev/null 2>&1; then
+            cd src/web && pnpm run build
+          else
+            echo "No build script yet. Skipping."
+          fi
