@@ -32,3 +32,9 @@ Key design choices, trade-offs, and risks.
 ## Notes for Reviewers
 Anything reviewers should focus on or ignore.
 
+
+---
+
+**Link issues with keywords:** e.g., `Closes #123`, `Fixes #456`.
+
+**Commit style:** Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `chore:`).
