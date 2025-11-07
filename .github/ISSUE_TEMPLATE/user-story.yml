@@ -1,0 +1,71 @@
+name: User Story
+description: Plan a user-facing capability
+labels: ["type:story"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Story title
+      placeholder: "ST0.1.2 — Solution skeleton"
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: "1–3 sentences describing the outcome."
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: "Gherkin or checklist."
+    validations:
+      required: true
+  - type: dropdown
+    id: milestone
+    attributes:
+      label: Milestone
+      options:
+        - "M0 Bootstrap"
+        - "M1 Auth+Tenancy+Classes"
+        - "M2 Invoices+Email"
+        - "M3 Attendance+Perf"
+  - type: dropdown
+    id: area
+    attributes:
+      label: Feature Area
+      options:
+        - "Repo/Tooling"
+        - "Auth"
+        - "Tenancy"
+        - "Classes"
+        - "Enrollments"
+        - "Invoices"
+        - "Email"
+        - "Attendance"
+        - "Public App Form"
+        - "Infra/IaC"
+        - "Observability"
+        - "Frontend"
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options:
+        - "XS"
+        - "S"
+        - "M"
+        - "L"
+        - "XL"
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: "Checklist of implementation steps."
+      value: "- [ ] "
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks/Unknowns

@@ -1,0 +1,17 @@
+name: Bug
+description: Report a problem
+labels: ["type:bug"]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: What happened?, description: "Observed vs expected." }
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes: { label: Repro steps, value: "1.\n2.\n3." }
+  - type: textarea
+    id: context
+    attributes: { label: Context, description: "Logs, env, commit SHA." }
+  - type: dropdown
+    id: priority
+    attributes: { label: Priority, options: ["P0", "P1", "P2", "P3"] }
