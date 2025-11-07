@@ -1,0 +1,11 @@
+name: CI
+
+jobs:
+  build-dotnet:
+    name: Build .NET
+    runs-on: ubuntu-latest
+    steps: [...]
+  build-web:
+    name: Build Web
+    runs-on: ubuntu-latest
+    steps: [...]
