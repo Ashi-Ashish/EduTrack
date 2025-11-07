@@ -22,8 +22,3 @@ A multi-tenant teaching-institute app (AZ-204 aligned).
 - Trunk-based, PRs only to `main` (protected)
 - Conventional Commits
 - Tenant isolation via RLS + app guards
-
-## Continuous Integration
-- `.github/workflows/ci.yml` defines the required jobs `build-dotnet` and `build-web`.
-- Branch protection only allows merges when both jobs are green, so keep the job names stable (or update the protection rule before renaming them).
-- Jobs auto-detect .NET solutions/projects and web packages; expand their steps with real builds/tests as the codebase fills in.
