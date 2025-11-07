@@ -1,0 +1,10 @@
+# Normalize line endings
+* text=auto eol=lf
+
+# Keep PowerShell scripts CRLF if we add any
+*.ps1 text eol=crlf
+
+# Treat these as binary
+*.png binary
+*.jpg binary
+*.pdf binary
