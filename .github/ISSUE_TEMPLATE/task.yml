@@ -1,0 +1,35 @@
+name: Task
+description: Track a technical task
+labels: ["type:task"]
+body:
+  - type: input
+    id: summary
+    attributes: { label: Summary }
+    validations: { required: true }
+  - type: dropdown
+    id: area
+    attributes:
+      {
+        label: Feature Area,
+        options:
+          [
+            "Repo/Tooling",
+            "Auth",
+            "Tenancy",
+            "Classes",
+            "Enrollments",
+            "Invoices",
+            "Email",
+            "Attendance",
+            "Public App Form",
+            "Infra/IaC",
+            "Observability",
+            "Frontend",
+          ],
+      }
+  - type: dropdown
+    id: size
+    attributes: { label: Size, options: ["XS", "S", "M", "L", "XL"] }
+  - type: textarea
+    id: steps
+    attributes: { label: Steps, value: "- [ ] " }

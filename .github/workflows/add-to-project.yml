@@ -1,0 +1,21 @@
+name: Add items to Project
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  add:
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      projects: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1.0.3
+        with:
+          project-url: https://github.com/users/Ashi-Ashish/projects/4
+          github-token: ${{ secrets.GITHUB_TOKEN }}
