@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{61D3F7B6-8813-4C32-89B2-38D240E33ACD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{C6AE1F8A-10B2-42E2-AB4A-92B1E1C501E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTrack.Api", "src\api\EduTrack.Api\EduTrack.Api.csproj", "{D5B37B5B-70F7-4227-8C1D-EDAAC7F3DBB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "domain", "domain", "{4967DD43-7272-4481-9988-A060482367C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTrack.Domain", "src\domain\EduTrack.Domain\EduTrack.Domain.csproj", "{F14ACCDA-5261-4731-8443-406207EB03DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{671CDA06-398B-415C-B411-7E6BACA353EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTrack.Infrastructure", "src\infrastructure\EduTrack.Infrastructure\EduTrack.Infrastructure.csproj", "{7924F30E-657D-44AF-91CE-A8924CAD0D4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "functions", "functions", "{634C4150-788D-4206-B4EE-F1A319773DE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTrack_Functions_Invoicing", "src\functions\EduTrack.Functions.Invoicing\EduTrack_Functions_Invoicing.csproj", "{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5B37B5B-70F7-4227-8C1D-EDAAC7F3DBB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B37B5B-70F7-4227-8C1D-EDAAC7F3DBB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B37B5B-70F7-4227-8C1D-EDAAC7F3DBB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B37B5B-70F7-4227-8C1D-EDAAC7F3DBB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F14ACCDA-5261-4731-8443-406207EB03DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F14ACCDA-5261-4731-8443-406207EB03DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F14ACCDA-5261-4731-8443-406207EB03DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F14ACCDA-5261-4731-8443-406207EB03DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7924F30E-657D-44AF-91CE-A8924CAD0D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7924F30E-657D-44AF-91CE-A8924CAD0D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7924F30E-657D-44AF-91CE-A8924CAD0D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7924F30E-657D-44AF-91CE-A8924CAD0D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C6AE1F8A-10B2-42E2-AB4A-92B1E1C501E5} = {61D3F7B6-8813-4C32-89B2-38D240E33ACD}
+		{D5B37B5B-70F7-4227-8C1D-EDAAC7F3DBB4} = {C6AE1F8A-10B2-42E2-AB4A-92B1E1C501E5}
+		{4967DD43-7272-4481-9988-A060482367C8} = {61D3F7B6-8813-4C32-89B2-38D240E33ACD}
+		{F14ACCDA-5261-4731-8443-406207EB03DA} = {4967DD43-7272-4481-9988-A060482367C8}
+		{671CDA06-398B-415C-B411-7E6BACA353EE} = {61D3F7B6-8813-4C32-89B2-38D240E33ACD}
+		{7924F30E-657D-44AF-91CE-A8924CAD0D4D} = {671CDA06-398B-415C-B411-7E6BACA353EE}
+		{634C4150-788D-4206-B4EE-F1A319773DE6} = {61D3F7B6-8813-4C32-89B2-38D240E33ACD}
+		{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C} = {634C4150-788D-4206-B4EE-F1A319773DE6}
+	EndGlobalSection
+EndGlobal
