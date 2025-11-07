@@ -1,0 +1,23 @@
+# Default owners (catch-all). Use your org + team slug or usernames.
+*                                   @your-org/edutrack-core
+
+# Backend (Minimal APIs + Domain)
+src/api/                            @your-org/dotnet
+src/domain/                         @your-org/dotnet
+
+# Azure Functions workers
+src/functions/                      @your-org/platform
+
+# Frontend (React + Vite + Tailwind)
+src/web/                            @your-org/frontend
+
+# Infrastructure as Code (Bicep) + GitHub Actions
+infra/                              @your-org/platform
+.github/workflows/                  @your-org/platform
+
+# Data (migrations / SQL). Handy to gate RLS policies.
+**/*.sql                            @your-org/dba
+
+# Docs
+README.md                           @your-org/tech-writers
+docs/                               @your-org/tech-writers
