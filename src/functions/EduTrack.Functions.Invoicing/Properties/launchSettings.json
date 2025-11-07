@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "EduTrack_Functions_Invoicing": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7185",
+      "launchBrowser": false
+    }
+  }
+}
