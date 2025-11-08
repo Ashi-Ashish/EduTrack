@@ -1,6 +1,5 @@
-using System;
-using System.Threading.Tasks;
 using Azure.Messaging.ServiceBus;
+
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
@@ -16,7 +15,7 @@ public class InvoiceWorkItemTrigger
     }
 
     [Function(nameof(InvoiceWorkItemTrigger))]
-    public async Task Run(
+    public async Task RunAsync(
         [ServiceBusTrigger("invoice-work-items", Connection = "ServiceBusConnection")]
         ServiceBusReceivedMessage message,
         ServiceBusMessageActions messageActions)

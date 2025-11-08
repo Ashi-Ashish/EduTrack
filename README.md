@@ -29,3 +29,9 @@ A multi-tenant teaching-institute app (AZ-204 aligned).
 - Trunk-based, PRs only to `main` (protected)
 - Conventional Commits
 - Tenant isolation via RLS + app guards
+
+## Code Quality & Analyzers
+- All .NET projects inherit nullable, analyzer, and warnings-as-errors settings from `Directory.Build.props`, plus `Microsoft.CodeAnalysis.NetAnalyzers` is pinned once so diagnostics stay consistent across Api, Domain, Infrastructure, Functions, and tests.
+- `dotnet build` on a clean checkout must succeed with **zero warnings**; if you need to verify locally, run `dotnet restore && dotnet build` (the same sequence CI uses) and fix any analyzer output before committing.
+- `dotnet format` will auto-fix style and whitespace issues; use `dotnet format --verify-no-changes` in pipelines or before pushing to ensure no pending formatting diffs.
+- GitHub Actions runs `dotnet restore`, `dotnet build --no-restore`, and `dotnet test --no-build`, so any analyzer warning or formatting violation will fail the PR build.
