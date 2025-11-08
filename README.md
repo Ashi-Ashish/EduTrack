@@ -35,3 +35,8 @@ A multi-tenant teaching-institute app (AZ-204 aligned).
 - `dotnet build` on a clean checkout must succeed with **zero warnings**; if you need to verify locally, run `dotnet restore && dotnet build` (the same sequence CI uses) and fix any analyzer output before committing.
 - `dotnet format` will auto-fix style and whitespace issues; use `dotnet format --verify-no-changes` in pipelines or before pushing to ensure no pending formatting diffs.
 - GitHub Actions runs `dotnet restore`, `dotnet build --no-restore`, and `dotnet test --no-build`, so any analyzer warning or formatting violation will fail the PR build.
+
+## Dev Containers
+- VS Code + Dev Containers (or `devcontainer CLI`) can open this repo via `.devcontainer/devcontainer.json`, which layers the official `mcr.microsoft.com/devcontainers/dotnet:8.0` image with Node LTS, GitHub CLI, Azure CLI, PowerShell, pnpm, and Azure Functions Core Tools v4.
+- On first open the container installs global tooling via `npm install -g pnpm@9 azure-functions-core-tools@4`. Run `dotnet --info`, `node -v`, and `pnpm -v` inside the container to confirm the toolchain is ready before building.
+- Common ports are forwarded automatically: 5000 (API), 7071 (Functions), and 5173 (Vite).
