@@ -6,12 +6,28 @@ obj/
 *.nupkg
 *.snupkg
 TestResults/
+.vs/
 
 # node
-node_modules/
-dist/
-.vite/
+**/node_modules/
+**/dist/
+**/.vite/
 *.log
+*.tsbuildinfo
+**/.pnpm-store/
+**/.turbo/
+
+# python
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+.coverage
+**/coverage/
+**/.venv/
+**/venv/
+.python-version
 
 # tooling
 .vscode/
@@ -21,6 +37,9 @@ dist/
 .env
 .env.*
 secrets.*
+
+# azure functions
+local.settings.json
 
 # macOS
 .DS_Store

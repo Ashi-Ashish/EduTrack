@@ -1,0 +1,50 @@
+{
+  "name": "EduTrack Dev",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts",
+      "installYarn": false
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/powershell:1": {}
+  },
+  "postCreateCommand": "npm install -g pnpm@9 azure-functions-core-tools@4 --unsafe-perm true",
+  "forwardPorts": [
+    5000,
+    7071,
+    5173
+  ],
+  "portsAttributes": {
+    "5000": {
+      "label": "ASP.NET API"
+    },
+    "7071": {
+      "label": "Azure Functions"
+    },
+    "5173": {
+      "label": "Vite Dev Server"
+    }
+  },
+  "remoteEnv": {
+    "DOTNET_CLI_TELEMETRY_OPTOUT": "1",
+    "DOTNET_SKIP_FIRST_TIME_EXPERIENCE": "1"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-azuretools.vscode-azureresourcegroups",
+        "eamodio.gitlens",
+        "ms-vscode.vscode-node-azure-pack"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "dotnet.defaultSolution": "EduTrack.sln"
+      }
+    }
+  },
+  "workspaceFolder": "/workspaces/EduTrack"
+}
