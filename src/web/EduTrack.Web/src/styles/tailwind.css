@@ -1,0 +1,10 @@
+@import './tokens.css';
+@import 'tailwindcss/preflight';
+@import 'tailwindcss/theme';
+@import 'tailwindcss/utilities';
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: inherit;
+}
