@@ -86,7 +86,7 @@ export function DarkModeToggle() {
       type="button"
       aria-pressed={isDark}
       onClick={handleToggle}
-      className="inline-flex items-center gap-2 rounded-full border border-slate-300/80 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-600 transition hover:border-brand-500 hover:text-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 dark:border-slate-600 dark:text-slate-200"
+      className="inline-flex items-center gap-2 rounded-full border border-slate-300/80 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-600 transition hover:border-brand-500 hover:text-brand-600 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-brand-500 dark:border-slate-600 dark:text-slate-200"
     >
       <span className="sr-only">Toggle dark mode</span>
       {isDark ? 'Dark' : 'Light'} mode

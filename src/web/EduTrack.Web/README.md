@@ -10,6 +10,8 @@ pnpm dev               # http://localhost:5173
 
 pnpm build             # type-check + production build
 pnpm preview           # serve the build locally
+pnpm test              # vitest suite for HTTP client utilities
+pnpm api:health        # CLI smoke test against /health using apiClient
 ```
 
 ## What’s included
@@ -18,6 +20,29 @@ pnpm preview           # serve the build locally
 - Global layout + dark mode toggle managed through the root `dark` class.
 - React Router demo routes (`/`, `/about`) and a catch-all 404 page.
 - Responsive container + typography spacing utilities ready for future feature modules.
+- Fetch-based HTTP client (`src/api`) with retries, timeouts, tenant/auth headers, and centralized config.
+
+## HTTP client usage
+
+- Configure `VITE_API_BASE_URL` in `.env.local` (see `.env.example`) so `apiConfig.baseUrl` hits the right backend.
+- Import from the barrel (`import { apiClient } from '@/api'`) and call the provided verbs (`get`, `post`, `put`, `patch`, `delete`).
+- Per-request overrides live on `RequestOptions` (timeouts, retry counts, bulk correlation IDs, etc.).
+- Failures throw `ApiError`, which includes HTTP status plus optional validation metadata for forms.
+
+```ts
+import { apiClient } from '@/api'
+
+const departments = await apiClient.get<Department[]>('/departments', {
+  timeout: 10_000,
+  bulkRequestId: 'onboarding-2025-01',
+})
+```
+
+## Testing & health checks
+
+1. `pnpm test` runs the Vitest suite that exercises retry/backoff, timeout cancellation, and `ApiError` propagation.
+2. `pnpm api:health` reuses the shared client to hit `/health` on the configured backend and surfaces structured failures.
+3. Ensure the backend is reachable (e.g., `dotnet run` inside the API solution or point `VITE_API_BASE_URL` at staging) before executing the health-check script.
 
 ## Reference plans
 
