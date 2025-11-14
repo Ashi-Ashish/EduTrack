@@ -17,6 +17,15 @@ A multi-tenant teaching-institute app (AZ-204 aligned).
 3. `func start --c src/functions/EduTrack.Functions.Invoicing` – runs the Service Bus worker (set `ServiceBusConnection` in `local.settings.json`).
 4. `cd src/web/EduTrack.Web && pnpm install && pnpm run dev` – installs dependencies and serves the Vite shell.
 
+## Frontend workflow & validation
+Most day-to-day work happens inside `src/web/EduTrack.Web`. The steps below keep the React/Vite stack healthy when you pull new changes or add features:
+
+1. `pnpm install` – run whenever `package.json`/`pnpm-lock.yaml` changes to guarantee local deps align with CI.
+2. `pnpm lint` – executes ESLint with the shared config to catch regressions early.
+3. `pnpm test` – runs the Vitest suite configured through `src/web/EduTrack.Web/src/setupTests.ts`, ensuring DOM mocks and accessibility helpers load before the specs.
+4. `pnpm build` – verifies the production bundle (Vite + Tailwind) compiles before you push.
+5. `pnpm dev` – manual smoke-test in the browser; use Chrome/Edge accessibility tooling to validate new UI or shared components under `src/web/EduTrack.Web/src/lib`.
+
 ## Monorepo layout (initial sketch)
 - `src/api` – ASP.NET Core Minimal API
 - `src/functions` – Azure Functions (queue trigger)

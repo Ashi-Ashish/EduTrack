@@ -1,45 +1,34 @@
-## What
-Explain the change in 1–3 bullets.
+## Summary
 
-## Why
-Link the issue/epic and the user impact.
+<!-- Brief description of what this PR does -->
 
-## How
-Key design choices, trade-offs, and risks.
+Closes #<!-- issue number -->
+
+## Changes
+
+<!-- List the key changes made -->
+
+-
+-
 
 ## Testing
-- [ ] Unit tests
-- [ ] Integration tests
-- [ ] Manual checks (commands, screenshots, or steps)
 
-## Multi-tenancy / RLS
-- [ ] Affects tenant boundaries or RLS
-- [ ] Added/updated migration + predicate tests
-- [ ] Verified per-tenant filter in queries
+- [ ] Tests added/updated
+- [ ] Manually verified
 
-## Infra
-- [ ] Bicep updated
-- [ ] `what-if` output attached (if infra changed)
+## Checklist
 
-## Observability
-- [ ] App Insights telemetry/correlation added
-- [ ] `X-Bulk-Request-Id` (if bulk)
+<!-- Check only what applies to this PR -->
 
-## CI
-- [ ] Builds pass (`build-dotnet`, `build-web`)
-- [ ] Lints/analyzers pass
+- [ ] Multi-tenancy/RLS considerations addressed
+- [ ] Infrastructure changes (Bicep) included
+- [ ] Observability/telemetry added
+- [ ] Documentation updated
 
-## Notes for Reviewers
-Anything reviewers should focus on or ignore.
+## Screenshots/Demo
 
+<!-- If applicable, add screenshots or demo steps -->
 
 ---
 
-**Link issues with keywords:** e.g., `Closes #123`, `Fixes #456`.
-
-**Commit style:** Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `chore:`).
-
-**Branch naming:** `feat/...`, `fix/...`, `hotfix/...` (see CONTRIBUTING.md).
-
-**Squash title tip:** start with a Conventional Commit, e.g.
-`feat(api): create class CRUD`
+**Reminder:** Use conventional commits (`feat:`, `fix:`, `docs:`, etc.) for the squash merge title.

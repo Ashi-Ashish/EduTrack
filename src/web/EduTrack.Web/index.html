@@ -4,10 +4,41 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>edutrack-web</title>
+    <meta name="description" content="EduTrack - Education management system for tracking students, classes, and attendance" />
+    <meta name="theme-color" content="#3b82f6" />
+    <title>EduTrack - Education Management System</title>
+    <script>
+      ;(() => {
+        const storageKey = 'edutrack-theme'
+        const root = document.documentElement
+        const prefersDark = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+
+        const getPreferredTheme = () => {
+          try {
+            const stored = window.localStorage.getItem(storageKey)
+            if (stored === 'dark' || stored === 'light') return stored
+          } catch {
+            // storage unavailable, fall back to media query
+          }
+          return prefersDark() ? 'dark' : 'light'
+        }
+
+        const theme = getPreferredTheme()
+        root.classList.toggle('dark', theme === 'dark')
+        root.dataset.theme = theme
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <!-- Screen reader announcements for page navigation -->
+    <div
+      id="page-announcer"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;"
+    ></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
