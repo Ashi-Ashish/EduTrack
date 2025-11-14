@@ -132,6 +132,7 @@ export class ApiError extends Error {
 
         // Maintains proper stack trace for where error was thrown (V8 only)
         if ('captureStackTrace' in Error) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
             (Error as { captureStackTrace(target: object, constructor: Function): void }).captureStackTrace(this, ApiError);
         }
     }
