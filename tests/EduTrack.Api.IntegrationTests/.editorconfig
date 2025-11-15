@@ -1,0 +1,9 @@
+# EditorConfig for EduTrack.Api.IntegrationTests
+
+root = false
+
+[*.cs]
+# Disable async method naming rule for test methods
+# Test methods use descriptive names following the MethodName_Scenario_ExpectedBehavior convention
+# The Async suffix is redundant for test methods as the async nature is clear from the async keyword
+dotnet_naming_rule.async_methods_end_in_async.severity = none

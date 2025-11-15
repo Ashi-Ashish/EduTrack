@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "functions", "functions", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTrack_Functions_Invoicing", "src\functions\EduTrack.Functions.Invoicing\EduTrack_Functions_Invoicing.csproj", "{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3B4C8F67-59B3-424F-8BA5-5E4911ED7DF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTrack.Api.IntegrationTests", "tests\EduTrack.Api.IntegrationTests\EduTrack.Api.IntegrationTests.csproj", "{55502C16-E66E-47B9-BFE2-6640C14884CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +50,10 @@ Global
 		{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55502C16-E66E-47B9-BFE2-6640C14884CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55502C16-E66E-47B9-BFE2-6640C14884CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55502C16-E66E-47B9-BFE2-6640C14884CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55502C16-E66E-47B9-BFE2-6640C14884CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C6AE1F8A-10B2-42E2-AB4A-92B1E1C501E5} = {61D3F7B6-8813-4C32-89B2-38D240E33ACD}
@@ -56,5 +64,6 @@ Global
 		{7924F30E-657D-44AF-91CE-A8924CAD0D4D} = {671CDA06-398B-415C-B411-7E6BACA353EE}
 		{634C4150-788D-4206-B4EE-F1A319773DE6} = {61D3F7B6-8813-4C32-89B2-38D240E33ACD}
 		{71F28C87-F0F6-4A63-B4AE-D778ED6EC85C} = {634C4150-788D-4206-B4EE-F1A319773DE6}
+		{55502C16-E66E-47B9-BFE2-6640C14884CC} = {3B4C8F67-59B3-424F-8BA5-5E4911ED7DF8}
 	EndGlobalSection
 EndGlobal
