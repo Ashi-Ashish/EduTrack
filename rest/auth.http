@@ -1,0 +1,29 @@
+### Health Check (No Auth Required)
+GET http://localhost:5000/health
+Content-Type: application/json
+
+###
+
+### Auth Test - No Token (Should return 401)
+GET http://localhost:5000/api/auth/test
+Content-Type: application/json
+
+###
+
+### Auth Test - With Invalid Token (Should return 401)
+GET http://localhost:5000/api/auth/test
+Authorization: Bearer invalid-token-12345
+Content-Type: application/json
+
+###
+
+### Auth Test - With Bearer Token (Replace with actual token)
+GET http://localhost:5000/api/auth/test
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+
+### Variables
+# To use: Replace the token value below with a real JWT token from your identity provider
+@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.your-actual-token-here
