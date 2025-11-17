@@ -24,6 +24,83 @@ Content-Type: application/json
 
 ###
 
+### Test SuperAdmin Endpoint
+GET http://localhost:5000/api/test/superadmin
+Authorization: Bearer {{superadmin_token}}
+
+### Test Admin Endpoint (InstituteAdmin)
+GET http://localhost:5000/api/test/admin
+Authorization: Bearer {{admin_token}}
+
+### Test Teacher Endpoint
+GET http://localhost:5000/api/test/teacher
+Authorization: Bearer {{teacher_token}}
+
+### Test InstituteManager Endpoint
+GET http://localhost:5000/api/test/manager
+Authorization: Bearer {{manager_token}}
+
+### Test Volunteer Endpoint
+GET http://localhost:5000/api/test/volunteer
+Authorization: Bearer {{volunteer_token}}
+
+### Test Guardian Endpoint
+GET http://localhost:5000/api/test/guardian
+Authorization: Bearer {{guardian_token}}
+
+### Test Student Endpoint
+GET http://localhost:5000/api/test/student
+Authorization: Bearer {{student_token}}
+
+### Test Finance Permission (Teacher with finance claim)
+GET http://localhost:5000/api/test/finance
+Authorization: Bearer {{teacher_with_finance_token}}
+
+### Test Attendance Permission (Volunteer with attendance claim)
+GET http://localhost:5000/api/test/attendance-record
+Authorization: Bearer {{volunteer_with_attendance_token}}
+
+### Test Attendance Permission (Volunteer without attendance claim - should fail)
+GET http://localhost:5000/api/test/attendance-record
+Authorization: Bearer {{volunteer_token}}
+
+### Test Staff Management (InstituteAdmin - should succeed)
+POST http://localhost:5000/api/test/staff
+Authorization: Bearer {{admin_token}}
+
+### Test Staff Management (InstituteManager - should fail)
+POST http://localhost:5000/api/test/staff
+Authorization: Bearer {{manager_token}}
+
+### Test Tenant Access (matching tenant)
+GET http://localhost:5000/api/tenants/tenant-123/test
+Authorization: Bearer {{admin_token_tenant123}}
+
+### Test Tenant Access (mismatched tenant - should fail)
+GET http://localhost:5000/api/tenants/tenant-456/test
+Authorization: Bearer {{admin_token_tenant123}}
+
+### Test Guardian Access to Linked Student (should succeed)
+GET http://localhost:5000/api/students/student-123/guardian-access
+Authorization: Bearer {{guardian_token_linked_to_student123}}
+
+### Test Guardian Access to Non-Linked Student (should fail)
+GET http://localhost:5000/api/students/student-456/guardian-access
+Authorization: Bearer {{guardian_token_linked_to_student123}}
+
+###
+
 ### Variables
 # To use: Replace the token value below with a real JWT token from your identity provider
 @token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.your-actual-token-here
+@superadmin_token = your-superadmin-jwt-here
+@admin_token = your-admin-jwt-here
+@manager_token = your-manager-jwt-here
+@teacher_token = your-teacher-jwt-here
+@teacher_with_finance_token = your-teacher-jwt-with-finance-claim
+@volunteer_token = your-volunteer-jwt-here
+@volunteer_with_attendance_token = your-volunteer-jwt-with-attendance-claim
+@guardian_token = your-guardian-jwt-here
+@student_token = your-student-jwt-here
+@admin_token_tenant123 = your-admin-jwt-with-tenant-123
+@guardian_token_linked_to_student123 = your-guardian-jwt-with-guardian-of-student-123-claim
