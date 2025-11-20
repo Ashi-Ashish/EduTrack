@@ -14,10 +14,10 @@ import { generateCorrelationId } from '../core/utils';
  * @param bulkRequestId - Optional bulk request ID for tracking
  * @returns Complete headers object
  */
-export function buildHeaders(
+export async function buildHeaders(
     customHeaders?: HeadersInit,
     bulkRequestId?: string
-): Record<string, string> {
+): Promise<Record<string, string>> {
     const headers: Record<string, string> = {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -48,8 +48,8 @@ export function buildHeaders(
         headers['X-Bulk-Request-Id'] = bulkRequestId;
     }
 
-    // TODO(ST1.1.3): Auth token injection
-    const token = getAuthToken();
+    // Auth token injection (integrated with AuthContext)
+    const token = await getAuthToken();
     if (token) {
         headers.Authorization = `Bearer ${token}`;
     }

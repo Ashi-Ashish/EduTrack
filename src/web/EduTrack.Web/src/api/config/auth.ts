@@ -5,18 +5,33 @@
  */
 
 /**
- * TODO(ST1.1.3): Integrate AuthContext to automatically add Bearer token
+ * Module-level token getter function that can be injected by AuthContext.
+ * This allows the API client to retrieve tokens without direct React dependencies.
+ */
+let tokenGetter: (() => Promise<string | null>) | null = null;
+
+/**
+ * Sets the token getter function.
+ * This should be called by AuthContext during initialization.
  * 
+ * @param getter - Function that returns the current auth token
+ */
+export function setTokenGetter(getter: () => Promise<string | null>): void {
+    tokenGetter = getter;
+}
+
+/**
  * Retrieves the authentication token for API requests.
- * Currently uses localStorage as a fallback for manual testing.
- * Will be replaced with proper AuthContext integration in M1.1.3.
+ * Integrated with AuthContext via setTokenGetter.
  * 
  * @returns Authentication token or null if not available
  */
-export function getAuthToken(): string | null {
-    // TODO(ST1.1.3): Replace with AuthContext integration
-    // Example: const { token } = useAuth();
-    // For now, check localStorage as fallback for manual testing
+export async function getAuthToken(): Promise<string | null> {
+    if (tokenGetter) {
+        return await tokenGetter();
+    }
+
+    // Fallback to localStorage for backward compatibility (development/testing)
     if (typeof localStorage === 'undefined') {
         return null;
     }

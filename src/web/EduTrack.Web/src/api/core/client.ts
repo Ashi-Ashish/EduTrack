@@ -86,7 +86,7 @@ export const apiClient = {
    */
   async get<T>(endpoint: string, options: RequestOptions = {}): Promise<T> {
     const url = buildUrl(endpoint);
-    const headers = buildHeaders(options.headers, options.bulkRequestId);
+    const headers = await buildHeaders(options.headers, options.bulkRequestId);
 
     const response = await fetchWithTimeout(url, {
       ...options,
@@ -120,7 +120,7 @@ export const apiClient = {
     options: RequestOptions = {}
   ): Promise<T> {
     const url = buildUrl(endpoint);
-    const headers = buildHeaders(options.headers, options.bulkRequestId);
+    const headers = await buildHeaders(options.headers, options.bulkRequestId);
 
     const response = await fetchWithTimeout(url, {
       ...options,
@@ -157,7 +157,7 @@ export const apiClient = {
     options: RequestOptions = {}
   ): Promise<T> {
     const url = buildUrl(endpoint);
-    const headers = buildHeaders(options.headers, options.bulkRequestId);
+    const headers = await buildHeaders(options.headers, options.bulkRequestId);
 
     const response = await fetchWithTimeout(url, {
       ...options,
@@ -191,7 +191,7 @@ export const apiClient = {
     options: RequestOptions = {}
   ): Promise<T> {
     const url = buildUrl(endpoint);
-    const headers = buildHeaders(options.headers, options.bulkRequestId);
+    const headers = await buildHeaders(options.headers, options.bulkRequestId);
 
     const response = await fetchWithTimeout(url, {
       ...options,
@@ -221,7 +221,7 @@ export const apiClient = {
     options: RequestOptions = {}
   ): Promise<T> {
     const url = buildUrl(endpoint);
-    const headers = buildHeaders(options.headers, options.bulkRequestId);
+    const headers = await buildHeaders(options.headers, options.bulkRequestId);
 
     const response = await fetchWithTimeout(url, {
       ...options,
