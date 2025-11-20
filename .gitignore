@@ -45,4 +45,4 @@ local.settings.json
 .DS_Store
 
 # Plan
-*Plan.md
+_plan/
